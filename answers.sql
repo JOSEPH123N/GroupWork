@@ -1,25 +1,23 @@
 
-
 --Quetione 1 
 create database bookstoredata;
 
 
- --Quetion 2/All the Tables 
- --Table 1 
+--Quetion 2/All the Tables 
+--Table 1 
  use bookstoredata; 
  create table book ( book_id INT auto_increment primary KEY, title varchar (255), isbn varchar(20), publisher_id int, language_id int, price decimal(10,2), publication_year Int );
  
  
-  --Table 2 
+--Table 2 
 use bookstoredata; 
 create table book_author( book_id int, author_id int, PRIMARY KEY(book_id,author_id) );
 
-  
- --Table 3 
+--Table 3 
 CREATE TABLE author ( author_id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(100), last_name VARCHAR(100) );
 
    
- --Table 4 
+--Table 4 
 use bookstoredata; 
     
 create table book_language( language_id int auto_increment PRIMARY KEY, language_name varchar(100) ); 
@@ -73,7 +71,6 @@ use bookstoredata;
 create table order_status( status_id int auto_increment PRIMARY KEY, status_name varchar (50) ); 
 
 
-
 --Table 15
 use bookstoredata; 
 create table order_history( history_id int auto_increment PRIMARY KEY, order_id int, status_id int, change_date DATETIME ); 
@@ -86,7 +83,7 @@ create table order_history( history_id int auto_increment PRIMARY KEY, order_id 
  
 
 
-  --FORIEGNY KEY 2 
+--FORIEGNY KEY 2 
 ALTER TABLE cust_order ADD FOREIGN KEY (order_id) REFERENCES cust_order(order_id), ADD FOREIGN KEY (status_id) REFERENCES order_status(status_id);
  
 
@@ -107,7 +104,7 @@ ALTER TABLE address ADD FOREIGN KEY (country_id) REFERENCES country(country_id);
 ALTER TABLE publisher ADD FOREIGN KEY (country_id) REFERENCES country (country_id);
    
 
- --FOREIGN KEY 7 
+--FOREIGN KEY 7 
 ALTER TABLE book_author ADD FOREIGN KEY (book_id) REFERENCES book(book_id), ADD FOREIGN KEY (author_id) REFERENCES author (author_id) 
    
 --FOREIGN KEY 8 
